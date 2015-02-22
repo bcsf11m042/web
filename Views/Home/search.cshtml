@@ -1,0 +1,169 @@
+﻿@model List<EAD_Project.Models.Ad>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+        
+        
+        <link rel="icon" type="image/jpg" href="icon.100x100-75.jpg" />
+         olx 
+         
+    </title>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/Script/bootstrap.js"></script>
+</head>
+<body style="background-color:whitesmoke">
+    <br />
+    <p> @Html.ViewBag.l </p>
+    <p> @Html.ViewBag.m </p>
+    <div class="row">
+        <div class="col-md-2"></div>
+        
+        <div class ="col-xs-8">            
+                <div>
+                    <a href="@Url.Action("index", "Home")">
+                        <img src="@Url.Content("~/Content/icon.100x100-75.jpg")" />
+                    </a>
+                    <b> Pakistan's Largest MarketPlace </b>
+            
+                 
+                     <a href="account.html" style="color:blue  ; margin-top:34px ; margin-left:340px " >
+                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>   My Account 
+                     </a>
+                     &nbsp &nbsp
+                     <a style="color:orange ; float:right ; margin-top:36px"> 
+                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Submit an Add 
+                     </a> 
+                 
+                </div>
+        
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-md-2"></div>
+        
+        <div class ="col-xs-8">
+            <nav class="navbar navbar-default" role="navigation" style="background-color:lightblue; border-color:white; outline-color:white; border-width:4px">
+                <form  action="/Home/searchText" method="post">
+                <div class ="col-xs-3">
+                        <div class ="form-group">
+                            <div class="input-group" style ="margin-top:6px">
+                                <span class="input-group-addon glyphicon glyphicon glyphicon-map-marker" aria-hidden="true"></span> 
+                                <input type="text" class="form-control" name="location" placeholder="Location" style="width : 200px"/>
+                            </div> 
+                          
+                        </div>
+                </div>
+                <div class ="col-xs-4">
+                        <div class ="form-group">
+                            <div class="input-group" style="margin-top:6px ; margin-left:50px">
+                                <span class="input-group-addon glyphicon glyphicon glyphicon-search" aria-hidden="true"></span> 
+                                <input type="text" class="form-control" name="search" placeholder="Search Adds" style="width : 400px"/>
+                            </div>                          
+                        </div>
+                </div>
+                @*<form class="navbar-form navbar-left" role="search" action="/Home/searchText" method="post">*@
+                @*<a href="/Home/searchText" class="btn btn-default" style="margin-top:8px ; float:right ; margin-right:20px; background-color:coral;">*@
+                 @*<div class ="form-group">   
+                    <div class="input-group" style="float:right;margin-left:200px">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> *@
+                        <input type="submit" value="Search" class="btn btn-default" style=" float:right ; margin-top:6px ; margin-right:20px; background-color:coral;"/> 
+                    @*</div>
+                 </div>*@
+               </form>
+            </nav>
+            <nav class="navbar navbar-default" role="navigation" style="height:50px;background-color:gray;color:white">
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+               
+                
+                <b> Free Ads </b>
+                <hr />
+            </nav>
+
+             @foreach(var c in Model)
+                {
+                <table style="margin-top:10px">
+                   
+                    <tr style="border:ridge">
+                        <td class="col-xs-1" style="border:ridge;height:110px; text-align:center">
+                            <img src="@c.image" style="height:80px;width:80px" />
+                        </td>
+
+                        <td class="col-xs-5">
+                            <b style="color:chocolate">  @c.title </b>
+                            <br />
+                            @c.category
+                            <br />
+                            <b> @c.state &nbsp &nbsp &nbsp @c.city </b>
+                            <br />
+                            <br />
+                            @c.date
+                        </td>
+
+                        <td class="col-xs-2" style="text-align:center"> 
+                           <b> Rs. @c.price </b>
+                            <br />
+                            <br />
+                            <label style="color:blueviolet"> Contact:</label> @c.phoneNo
+                        </td>
+                    </tr>
+                    
+                </table>
+                    }
+            
+@*            <table style="margin-top:10px">
+                <tr style="border:ridge">
+                    <td class="col-xs-1" style="border:ridge;height:110px; text-align:center">
+                        <img src="~/Content/mobile.png" style="height:80px;width:80px" />
+                    </td>
+
+                    <td class="col-xs-5">
+                        <b style="color:blue"> Add of the title comes here </b>
+                        <br />
+                        Category of the item comes here
+                        <br />
+                        <b> Location of the item </b>
+                        <br />
+                        <br />
+                        Date of the add
+                    </td>
+
+                    <td class="col-xs-2" style="text-align:center"> 
+                       <b> Rs. 200000 </b>
+                    </td>
+                </tr>
+            </table>
+
+            <table style="margin-top:10px">
+                <tr style="border:ridge">
+                    <td class="col-xs-1" style="border:ridge;height:110px; text-align:center">
+                        <img src="~/Content/mobile.png" style="height:80px;width:80px" />
+                    </td>
+
+                    <td class="col-xs-5">
+                        <b style="color:blue"> Add of the title comes here </b>
+                        <br />
+                        Category of the item comes here
+                        <br />
+                        <b> Location of the item </b>
+                        <br />
+                        <br />
+                        Date of the add
+                    </td>
+
+                    <td class="col-xs-2" style="text-align:center"> 
+                       <b> Rs. 200000 </b>
+                    </td>
+                </tr>
+            </table>*@
+         </div>
+    </div>
+
+    
+              
+
+</body>
+</html>

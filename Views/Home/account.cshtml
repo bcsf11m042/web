@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> olx </title>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/Script/bootstrap.js"></script>
+</head>
+<body>
+    <br />
+    <div class="row">
+        <div class="col-md-2"></div>
+        
+        <div class ="col-xs-8">            
+                <div>
+                    
+                    <a href="@Url.Action("index", "Home")">
+                        <img src="@Url.Content("~/Content/icon.100x100-75.jpg")" />
+                    </a>
+                    
+                    @*<img src="~/Content/icon.100x100-75.jpg" />*@
+                    <b> Pakistan's Largest MarketPlace </b>
+            
+                 
+                     <a style="color:blue  ; margin-top:34px ; margin-left:350px " >
+                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>  My Account 
+
+                     </a>
+                            &nbsp &nbsp
+                     <a style="color:orange ; float:right ; margin-top:36px"> 
+                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Submit an Add 
+                     </a> 
+                    <br />
+                    <br />
+                    <b> Your OLX Ads </b>
+                    <br />
+                    You can manage your Active & Inactive Ads here
+                 
+                </div>
+        </div>
+    </div>
+
+    <br />
+    <div class="row">
+        <div class="col-md-2"></div>
+        
+        <div class ="col-xs-8">  
+
+            <br />
+           
+            <div  style="border:2px ridge; height:44px">           
+                <div  style="margin-top:8px">
+                     &nbsp&nbsp
+                    <a href="/Home/activeAdds/@Model"> Active <span class="badge"> @Model </span></a>
+                    &nbsp&nbsp&nbsp&nbsp
+                    <a href="/Home/inactiveAdds/@Model">Inactive <span class="badge">4</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

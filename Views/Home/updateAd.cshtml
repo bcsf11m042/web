@@ -1,0 +1,318 @@
+﻿@model EAD_Project.Models.Ad
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> olx </title>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/Script/jquery.js"></script>
+
+    <script src="~/Script/bootstrap.js"></script>
+    
+    <script src="~/Script/jquery.validate.js"></script>
+    <script src="~/Script/jquery.validate.min.js"></script>
+        <script>
+            $("#f1").validate({
+
+                errorPlacement: function(error, element){
+                    element.parent().after(error);
+                },
+                rules: {
+                    title: { required: true },
+                    //email: {
+                    //    required: true,
+                    //    email: true
+                    // }
+                    price: { required: true }
+
+                },
+                messages: {
+                    //title: "Please specify your name",
+                    //price: "Please specify item price"
+                    //email: {
+                    //    required: "We need your email address to contact you",
+                    //    email: "Your email address must be in the format of name@domain.com"
+                    //}
+                }
+            });
+    </script>
+</head>
+<body>
+    <br />
+    <div class="row">
+        <div class="col-md-2"></div>
+        
+        <div class ="col-xs-8">            
+            <div>
+                    <a href="@Url.Action("index", "Home")">
+                        <img src="@Url.Content("~/Content/icon.100x100-75.jpg")" />
+                    </a>
+                    <b> Pakistan's Largest MarketPlace </b>
+            
+                 
+                     <a style="color:blue  ; margin-top:34px ; float:right " >
+                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>  My Account 
+
+                     </a> 
+                     <br />
+            </div>
+            <hr />
+
+            @*@Html.BeginForm("postAd" , "Home" ,"post"){*@
+            
+            
+            
+            
+           @* <form action="/Home/postAd" method="post" enctype="multipart/form-data">*@
+            @using (Html.BeginForm("updateCommit", "Home", FormMethod.Post, new { Id = "f1" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+            
+            
+           @* @Html.BeginForm("postAd", "Home", FormMethod.Post, new { Id = "f1"}){*@
+            @*<form id="f1" action="/Home/postAd" method="post" enctype="multipart/form-data">*@
+            <table style="border:ridge">
+                     <tr style="height:30px; border-bottom:1px ridge;">
+                         <td class="col-xs-2">                        
+                             <a style="color:black; font-size:16px"> &nbsp&nbsp&nbsp&nbsp Submit an Ad </a>
+              
+                         </td>
+                         <td class="col-xs-5">                        
+
+                         </td>
+                         <td class="col-xs-1">                        
+
+                         </td>
+                         
+                     </tr>
+                
+                     <tr style="height:50px;">
+                         
+                         <td class="col-xs-2"> 
+
+                             @Html.Label("Ad Title" , new{style="float:right; color:black"})
+                             @*<a style="float:right;color:black"> Ad Title </a>*@
+                         </td>
+
+                         <td class="col-xs-5"> 
+                             @*<input type="text" name="title" class="form-control" style="width:500px" />*@
+                             @Html.TextBoxFor(x => x.title, new { @class="form-control", style="width:500px", placeholder = @Model.title });
+                         </td>
+                         
+                         <td class="col-xs-1"> 
+                             
+                         </td>
+                     </tr>
+
+                    <tr style="height:50px;border-bottom:1px ridge;">                       
+                         <td class="col-xs-2"> 
+                             @Html.Label("Category" , new{style="float:right; color:black"})
+                             @*<a style="float:right;color:black"> Category </a>*@
+                         </td>
+
+                         <td class="col-xs-5" > 
+                             <select style=" width:300px"" class="form-control" name ="category" >
+                                <option value="empty">  </option>
+                                <option value="Mobiles & Tablets"> Mobiles & Tablets </option>
+                                <option value="Electronic & Computers"> Electronic & Computers </option>
+                                <option value="Vehicles"> Vehicles </option>
+                                <option value="Home & Furniture"> Home & Furniture </option>
+                                <option value="Animals"> Animals </option>
+                                <option value="Books, Sport & Hobbies"> Books, Sport & Hobbies </option>
+                                <option value="Fashion & Beauty"> Fashion & Beauty </option>
+                                <option value="Kids & Baby Products"> Kids & Baby Products </option>
+                                <option value="Services"> Services </option>
+                                <option value="Jobs"> Jobs </option>
+                                <option value="Real State"> Real State </option>
+                            </select>
+                         </td>
+                         
+                         <td class="col-xs-1"> 
+                             
+                         </td>
+                    </tr>
+                    
+                    <tr style="height:240px;">
+                         
+                         <td class="col-xs-2"> 
+                             @Html.Label("Add Description" , new{style="float:right; color:black"})
+                             @*<a style="float:right;color:black"> Add Description </a>*@
+                         </td>
+
+                         <td class="col-xs-5"> 
+                             @*<input type="text" class="form-control" name= "description" style=" width:400px; height:200px;"/>*@
+                             @Html.TextAreaFor(x => x.description, new {style="width:400px; height:200px" ,@class="form-control" });
+                         </td>
+                         
+                         <td class="col-xs-1"> 
+                             
+                         </td>
+                     </tr>
+                    
+                    <tr style="height:50px;">
+                         
+                         <td class="col-xs-2"> 
+                             @Html.Label("Price" , new{style="float:right; color:black"})
+                             @*<a style="float:right;color:black"> Price </a>*@
+                         </td>
+
+                         <td class="col-xs-5"> 
+                             @*<input type="text" name ="price" class="form-control" style="width:300px" />*@
+                             @Html.TextBoxFor(x => x.price, new { @class="form-control", style="width:300px" });
+                             @Html.ValidationMessageFor(x => x.price)
+                         </td>
+                         
+                         <td class="col-xs-1"> 
+                             
+                         </td>
+                     </tr>    
+
+                    <tr style="height:240px;">
+                         
+                         <td class="col-xs-2"> 
+                             @Html.Label("Upload Photos" , new{style="float:right; color:black"})
+                             @*<a style="float:right;color:black"> Upload Photos </a>*@
+                         </td>
+
+                         <td class="col-xs-5"> 
+                             <input type="file" name="image" />
+                         </td>
+                         
+                         <td class="col-xs-1"> 
+                             
+                         </td>
+                     </tr>
+
+                    <tr style="height:50px;border-bottom:1px ridge">
+                         
+                         <td class="col-xs-2"> 
+                             @Html.Label("Your Contact Details" , new{style="float:right; color:black"})
+                             @*<b style="float:right;font-size:12px"> Your Contact Details </b>*@
+                         </td>
+
+                         <td class="col-xs-5"> 
+                             
+                         </td>
+                         
+                         <td class="col-xs-1"> 
+                             
+                         </td>
+                     </tr>
+
+                    <tr style="height:50px;">
+                         
+                         <td class="col-xs-2"> 
+                             <a style="float:right;color:black"> Name </a>
+                         </td>
+
+                         <td class="col-xs-5"> 
+                             @*<input type="text" class="form-control" name="name" style="width:250px" />*@
+                             @Html.TextBoxFor(x => x.name, new { @class="form-control", style="width:250px" });
+
+                         </td>
+                         
+                         <td class="col-xs-1"> 
+                             
+                         </td>
+                     </tr>
+
+                    <tr style="height:50px;">
+                         
+                         <td class="col-xs-2"> 
+                             <a style="float:right;color:black"> Email </a>
+                         </td>
+
+                         <td class="col-xs-5"> 
+                             @*<input type="text" class="form-control" name ="email" style="width:300px" />*@
+                             @Html.TextBoxFor(x => x.email, new { @class="form-control", style="width:300px" });
+                         </td>
+                         
+                         <td class="col-xs-1"> 
+                             
+                         </td>
+                     </tr>
+
+                    <tr style="height:50px;border-bottom:1px ridge">
+                         
+                         <td class="col-xs-2"> 
+                             <a style="float:right;color:black"> Phone </a>
+                         </td>
+
+                         <td class="col-xs-5"> 
+                             @*<input type="text" class="form-control" name="phoneNo" style="width:250px" />*@
+                             @Html.TextBoxFor(x => x.phoneNo, new { @class="form-control", style="width:250px" });
+                         </td>
+                         
+                         <td class="col-xs-1"> 
+                             
+                         </td>
+                     </tr>
+
+                    <tr style="height:50px;">                       
+                         <td class="col-xs-2"> 
+                             <a style="float:right;color:black"> State </a>
+                         </td>
+
+                         <td class="col-xs-5" > 
+                             <select style=" width:270px"" class="form-control" name ="state">
+                                <option value="empty">  </option>
+                                <option value="kashmir"> Azad Kashmir </option>
+                                <option value="balochistan"> Balochistan </option>
+                                <option value="islamabad"> Islamabad </option>
+                                <option value="khyber"> Khyber Pakhtunkhwa </option>
+                                <option value="norther"> Norther Areas </option>
+                                <option value="punjab"> Punjab </option>
+                                <option value="sindh"> Sindh </option>
+                            </select>
+                         </td>
+                         
+                         <td class="col-xs-1"> 
+                             
+                         </td>
+                    </tr>
+
+                    <tr style="height:50px;border-bottom:1px ridge">
+                         
+                         <td class="col-xs-2"> 
+                             <a style="float:right;color:black"> City </a>
+                         </td>
+
+                         <td class="col-xs-5"> 
+                             @*<input type="text" class="form-control" name = "city" style= "width:270px" />*@
+                             @Html.TextBoxFor(x => x.city, new { @class="form-control", style="width:300px" });
+                             
+                         </td>
+                         
+                         <td class="col-xs-1"> 
+                             
+                         </td>
+                     </tr>
+
+                    <tr style="height:100px;border-bottom:1px ridge">
+                         
+                         <td class="col-xs-1"> 
+                             
+                         </td>
+
+                         <td class="col-xs-5"> 
+                             
+                         </td>
+                         
+                         <td class="col-xs-2" style="text-align:center">
+                          
+                             <button type="submit" class="btn btn-default" style="background-color:orangered; color:white;width:125px"> 
+                             <b> Submit </b>
+                            </button>
+                         </td>
+                     </tr>
+                     
+             </table>
+            }
+                    
+             @*</form>*@
+        </div>
+    </div>
+</body>
+</html>
+

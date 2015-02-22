@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> Sign Up </title>
+
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/Script/jquery.js"></script>
+    <script src="~/Script/bootstrap.js"></script>
+    @*<script src='<%= Url.Content("~/scripts/jquery-1.7.1.js") %>'></script>
+    <script src='<%= Url.Content("~/scripts/jquery.validate.js") %>'></script>
+    <script src='<%= Url.Content("~/scripts/jquery.validate.unobtrusive.js") %>'></script>*@
+
+</head>
+<body>
+    
+    <br />
+    <div class="row">
+        <div class="col-md-2"></div>
+        
+        <div class ="col-xs-8">            
+                <div>
+                    <a href="@Url.Action("index", "Home")">
+                        <img src="@Url.Content("~/Content/icon.100x100-75.jpg")" />
+                    </a>
+                    <b> Pakistan's Largest MarketPlace </b>
+            
+                 
+                     <a style="color:blue  ; margin-top:34px ; margin-left:340px " >
+                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>  My Account 
+
+                     </a>
+                            &nbsp &nbsp
+                     <a style="color:orange ; float:right ; margin-top:36px"> 
+                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Submit an Add 
+                     </a> 
+                     <br />
+                </div>
+            <hr />
+        </div>
+    </div>
+    
+        <div class="container">    
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Sign Up</div>                    
+                    </div>     
+
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        
+                        <form action="/Home/addUser" method="post">
+                        <div class="form-group">
+                                    <label for="email" class="col-md-3 control-label">Email</label>
+                                    <div style="margin-bottom: 10px" class="col-md-9">
+                                        <input id="email" type="text" class="form-control" name="email" placeholder="Email Address"/>
+                                    </div>
+                                </div>
+                                    
+                                <div class="form-group">
+                                    <label for="fullname" class="col-md-3 control-label">Full Name</label>
+
+                                    <div style="margin-bottom: 10px" class="col-md-9">
+                                        <input id="fullname" type="text" class="form-control" name="name" placeholder="Full Name"/>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="username" class="col-md-3 control-label">User Name</label>
+                                    <div style="margin-bottom: 10px" class="col-md-9">
+                                        <input id="userName" type="text" class="form-control" name="userName" placeholder="Username"/>
+                                        <input id="b1" type="button" value="Check Availability" style="margin-top:4px; background-color:green; color:white"/> 
+                                        <p id="p1"></p>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="password" class="col-md-3 control-label">Password</label>
+                                    <div style="margin-bottom: 10px" class="col-md-9">
+                                        <input type="password" class="form-control" name="password" placeholder="Password"/>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="reenterpassword" class="col-md-3 control-label">Confirm Password:</label>
+                                    <div style="margin-bottom: 15px" class="col-md-9">
+                                        <input type="password" class="form-control" name="passwd" placeholder="Re-enter Password"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="dateofbirth" class="col-md-3 control-label">Date of Birth: </label>
+                                    <div style="margin-bottom: 10px" class="col-lg-2">
+                                        <input type="text" class="form-control" name="day" maxlength="2" placeholder="DD"/> 
+                                   </div>
+                                        
+                                     <div style="margin-bottom: 10px" class="col-lg-2">
+                                        <input type="text" class="form-control" name="month" maxlength="2" placeholder="MM"/> 
+                                   </div>
+
+                                     <div style="margin-bottom: 10px" class="col-lg-3">
+                                        <input type="text" class="form-control" name="year" maxlength="4" placeholder="YYYY"/> 
+                                   </div>
+                                       
+                               </div>
+
+
+                                <div class="form-group">
+                                    <label for="city" class="col-md-3 control-label">City: </label>
+                                    <div style="margin-bottom: 15px" class="col-md-9">
+                                        <input type="text" class="form-control" name="city" placeholder="City"/>
+                                    </div>
+                                </div>
+
+
+                            <div class="form-group">
+                                    <label for="country" class="col-md-3 control-label">Country: </label>
+                                    <div style="margin-bottom: 15px" class="col-md-9">
+                                        <input type="text" class="form-control" name="country" placeholder="Country"/>
+                                    </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                    <label for="mobilenumber" class="col-md-3 control-label">Mobile Phone: </label>
+                                    <div style="margin-bottom: 15px" class="col-md-9">
+                                        <input type="text" class="form-control" maxlength="11" name="mobilenumber" placeholder="03XXxxxxxxx"/>
+                                    </div>
+                            </div>
+                                
+                                    
+
+                           <div class="form-group">
+                                    <label for="gender" class="col-md-3 control-label">Gender: </label>
+                                        
+                                            <div class="col-md-9" class="radio">
+                                              <label><input type="radio" name="opt1radio"/> Male</label>
+                                            </div>
+                               <div class="col-md-3 control-label"></div>
+                                            <div style="margin-bottom: 10px" class="col-md-9" class="radio">
+                                              <label><input type="radio" name="opt2radio"/> Female</label>
+                                            </div>
+                               </div>
+
+
+
+                        <div class="form-group">
+                            <label for="securityquestion" class="col-md-3 control-label">Security Question: </label>
+                            <div class="col-md-9 control-label">
+                            <select style="margin-bottom: 15px" class="form-control" name = "sques">
+                                <option value="first-teacher"> What is the name of your first teacher? </option>
+                                <option value="mother-birthplace"> What is your mother's birth place? </option>
+                                <option value="childhood-street"> What is your childhood street number? </option>
+                                <option value="favourite-actor"> What is the name of your favourite actor? </option>
+                                <option value="favourite-tvShow"> Which is your favourite TV show? </option>
+                            </select>
+
+                                </div>
+
+                         </div>
+
+                        <div class="form-group">
+                                    <label for="securityanswer" class="col-md-3 control-label">Your Answer: </label>
+                                    <div style="margin-bottom: 15px" class="col-md-9">
+                                        <input type="text" class="form-control" name="securityanswer" placeholder="Security Question Answer"/>
+                                    </div>
+                            </div>
+
+                          <div class="form-group">
+                                    
+                                    <div class="col-md-3 control-label">
+                                        <input class="col-md-9" type="checkbox"  name="termsandconditions"/>
+                                    </div>
+                              
+                                     <div style="margin-bottom: 10px" class="col-lg-9">
+                                        <label> I have read all <a href="terms-and-conditions.html"> terms and conditions </a></label>
+                                   </div>
+                            </div>
+
+                      <div class="form-group">
+                           <!-- Button -->    
+                          
+                              <div  style="margin-bottom: 15px ; float:right" class="col-md-3 control-label">
+                                     <input id="btn-signup" type="submit" class="btn btn-info" value="Sign Up"/>
+                              </div>                                                            
+                      </div> 
+                    </form>                           
+                </div>  
+            </div>
+         </div>
+      </div>
+
+    <hr />
+
+    
+    <script>
+
+        $(document).ready(function () {
+            $('#b1').click(function () {
+                var userName = $('#userName').val();
+                $.getJSON("/Home/checkUserName?userName=" + userName,
+                    function (d) {
+                        if (d) {
+                            $('#p1').text("User already exists in database");
+                        }
+                        else {
+                            $('#p1').text("User does not exists in database");
+                        }
+
+                    });
+            });
+        });
+    </script>
+
+</body>
+
+
+</html>
+

@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+        
+        
+        <link rel="icon" type="image/jpg" href="icon.100x100-75.jpg" />
+         olx 
+         
+    </title>
+
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/Script/bootstrap.js"></script>
+</head>
+<body style="background-color:whitesmoke">
+    <br />
+    <div class="row">
+        <div class="col-md-2"></div>
+        
+        <div class ="col-xs-8">            
+                <div>
+                    <img src="~/Content/icon.100x100-75.jpg" />
+                    <b> Pakistan's Largest MarketPlace </b>
+            
+                 
+                     <a href="/Home/login" style="color:blue  ; margin-top:34px ; margin-left:340px " >
+                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>   My Account 
+                     </a>
+                     &nbsp &nbsp
+                     <a href="/Home/submitAd" style="color:orange ; float:right ; margin-top:36px"> 
+                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Submit an Add 
+                     </a> 
+                 
+                </div>
+        
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-md-2"></div>
+        
+        <div class ="col-xs-8">
+            <nav class="navbar navbar-default" role="navigation" style="background-color:lightblue; border-color:white; outline-color:white; border-width:4px">
+                <form  action="/Home/searchText" method="post">
+                <div class ="col-xs-3">
+                        <div class ="form-group">
+                            <div class="input-group" style ="margin-top:6px">
+                                <span class="input-group-addon glyphicon glyphicon glyphicon-map-marker" aria-hidden="true"></span> 
+                                <input type="text" class="form-control" name="location" placeholder="Location" style="width : 200px"/>
+                            </div> 
+                          
+                        </div>
+                </div>
+                <div class ="col-xs-4">
+                        <div class ="form-group">
+                            <div class="input-group" style="margin-top:6px ; margin-left:50px">
+                                <span class="input-group-addon glyphicon glyphicon glyphicon-search" aria-hidden="true"></span> 
+                                <input type="text" class="form-control" name="search" placeholder="Search Adds" style="width : 400px"/>
+                            </div>                          
+                        </div>
+                </div>
+                @*<form class="navbar-form navbar-left" role="search" action="/Home/searchText" method="post">*@
+                @*<a href="/Home/searchText" class="btn btn-default" style="margin-top:8px ; float:right ; margin-right:20px; background-color:coral;">*@
+                 @*<div class ="form-group">   
+                    <div class="input-group" style="float:right;margin-left:200px">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> *@
+                        <input type="submit" value="Search" class="btn btn-default" style=" float:right ; margin-top:6px ; margin-right:20px; background-color:coral;"/> 
+                    @*</div>
+                 </div>*@
+               </form>
+            </nav>
+         </div>
+    </div>
+
+    <br />
+    <div class="row">
+        <div class="col-md-2"></div>
+        
+                <div class ="col-xs-4">
+                    
+                    <div class="row">
+                        
+                        <a href="/Home/search/1">
+                            <div class="col-xs-6 col-md-3 text-center">
+                                <img height="60px" src="mobile.png" alt="...">
+                                <div class="row" style="color:blue">
+                                    Mobile & Tablets 
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="/Home/search/2">
+                            <div class="col-xs-6 col-md-3 text-center">
+                                <img height="60px" src="laptop.png" alt="...">
+                                <div class="row" style="color:blue">
+                                    Electronics & Computers 
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="/Home/search/3">
+                            <div class="col-xs-6 col-md-3 text-center">
+                                <img height="60px" src="car.png" alt="...">
+                                <div class="row" style="color:blue">
+                                    Vehicles
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="/Home/search/4">
+                            <div class="col-xs-6 col-md-3 text-center">                        
+                                <img height="60px" src="furniture.png" alt="...">
+                                <div class="row" style="color:blue">
+                                    Home & Furniture 
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                   
+                 <br />
+                 <br />
+                 <div class="row">
+
+                     <a href="/Home/search/5">
+                        <div class="col-xs-6 col-md-3 text-center">
+                            <img height="60px" src="dog.jpg" alt="...">
+                            <div class="row" style="color:blue">
+                                Animals 
+                            </div>
+                        </div>
+                     </a>
+                     
+                     <a href="/Home/search/6">   
+                        <div class="col-xs-6 col-md-3 text-center">
+                            <img height="60px" src="books3.jpg" alt="...">
+                            <div class="row" style="color:blue">
+                                Books, Sports & Hobbies 
+                            </div>
+                        </div>
+                     </a>
+                     
+                     <a href="/Home/search/7">   
+                        <div class="col-xs-6 col-md-3 text-center">
+                            <img height="60px" src="fashion.jpg" alt="...">
+                            <div class="row" style="color:blue">
+                                Fashion & Beauty
+                            </div>
+                        </div>
+                      </a>
+
+                     <a href="/Home/search/8">
+                        <div class="col-xs-6 col-md-3 text-center">                        
+                            <img height="60px" src="kids.png" alt="...">
+                            <div class="row" style="color:blue">
+                                Kids & Baby Products 
+                            </div>
+                        </div>
+                     </a>                       
+                    </div>
+
+                    <br />
+                    <br />
+                    <div class="row">
+                        <a href="/Home/search/9">
+                            <div class="col-xs-6 col-md-3 text-center">
+                                <img height="60px" src="services.jpg" alt="...">
+                                <div class="row" style="color:blue">
+                                    Services 
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="/Home/search/10">
+                            <div class="col-xs-6 col-md-3 text-center">
+                                <img height="60px" src="jobs.jpg" alt="...">
+                                <div class="row" style="color:blue">
+                                    Jobs 
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="/Home/search/11">                        
+                            <div class="col-xs-6 col-md-3 text-center">
+                                <img height="60px" src="property.jpg" alt="...">
+                                <div class="row" style="color:blue">
+                                    Real State
+                                </div>
+                            </div>   
+                         </a>                                      
+                    </div>
+
+                </div>
+
+                <div class ="col-md-1"> </div>
+
+                <div class ="col-xs-3">
+                    <div class="jumbotron" style="margin-right:10px">
+                        <div class="text-center">
+                          <b style="font-size:18px"> Sell  Your  Item  on  OLX </b>
+                          <br />
+                          <br />
+                            <br />
+                          
+                            <a href="/Home/submitAd">
+                                  <button type="submit" class="btn btn-default" ; style = "background-color:orange"> 
+                                      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Submit An Add 
+                                  </button>
+                            </a>
+
+                          <br />
+                          <br />
+                            <br />
+
+                          <div> 
+                              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                              For free and <b>  without registration
+                              </b>
+                          </div>
+
+                            <div> 
+                              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                              Add up to <b>  8 photos 
+                              </b> per Ad
+                          </div>
+
+                            <div> 
+                              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                              Active for <b>  30 days 
+                              </b>
+                          </div>
+
+                            <br />
+  
+                             Your OLX Ads:<b style="color:blue"> Edit, Remove </b>
+
+                            
+                     </div>
+                </div>
+            </div>
+       
+    </div>
+
+</body>
+</html>

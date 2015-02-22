@@ -1,0 +1,180 @@
+﻿@model List<EAD_Project.Models.Ad>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> olx </title>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/Script/bootstrap.js"></script>
+</head>
+<body>
+    <br />
+    <div class="row">
+        <div class="col-md-2"></div>
+        
+        <div class ="col-xs-8">            
+                <div>
+                    <a href="@Url.Action("index", "Home")">
+                        <img src="@Url.Content("~/Content/icon.100x100-75.jpg")" />
+                    </a>
+                    <b> Pakistan's Largest MarketPlace </b>
+            
+                 
+                     <a style="color:blue  ; margin-top:34px ; margin-left:340px " >
+                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>  My Account 
+
+                     </a>
+                            &nbsp &nbsp
+                     <a style="color:orange ; float:right ; margin-top:36px"> 
+                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Submit an Add 
+                     </a> 
+                     <br />
+                    <br />
+                    <b> Your OLX Ads </b>
+                    <br />
+                    You can manage your Active & Inactive Ads here
+                </div>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-md-2"></div>
+        
+        <div class ="col-xs-8" style="border:2px ridge">  
+            <div  style="height:44px">           
+                <div  style="margin-top:8px">
+                     &nbsp&nbsp
+                    <a href="/Home/activeAdds/@ViewBag.z"> Active <span class="badge">1</span></a>
+                    &nbsp&nbsp&nbsp&nbsp
+                    <a href="/Home/inactiveAdds/@ViewBag.z"> Inactive <span class="badge">4</span></a>
+                    <hr />
+                </div>
+            </div>
+            
+            <!--<div>
+                <nav class="navbar navbar-default" role="navigation">                   
+                    <p style="margin-top:13px; color:gray"> <b> &nbsp&nbsp&nbsp&nbsp Active Ads </b> </p>
+                </nav>
+            </div>-->
+
+            <!--<div class="row">
+                    <div class ="col-xs-1">  
+ 
+                            <input type="checkbox" name="add" value="add"/> Date
+
+                    </div>
+                </div>-->
+            
+             <div class="jumbotron">
+                 <p style="color:gray; margin-bottom:20px"> &nbsp&nbsp&nbsp&nbsp Inactive Ads </p>
+                 <table style="background-color:white">
+                     <tr style="border:ridge;height:30px">
+                         <td class="col-xs-2">
+                         
+                             <input type="checkbox" name="add" value="add"/> &nbsp&nbsp <b style="color:blue"> Date </b>
+                         </td>
+                         <td class="col-xs-4"> 
+                             <b style="color:blue"> Ad Title </b>
+                         </td>
+
+                         <td class="col-xs-1"> 
+                             <b> Price </b>
+                         </td>
+                         
+                         <td class="col-xs-1"> 
+                             
+                         </td>
+                     </tr>
+                 
+                    @* <tr style="height:110px; border:ridge">
+                         <td class="col-xs-2">
+                         
+                             <input type="checkbox" name="add" value="add"/> &nbsp&nbsp  21-01-2015
+                         </td>
+                         <!--<td class="col-xs-1">
+                             
+                         </td>-->
+                         <td class="col-xs-4">
+                             <img src="~/Content/mobile.png" style="height:60px;width:50px"/>
+                             Here comes Title of the Ad
+                             <br />
+                             <a style="color:blue"> 
+                                 <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> Preview 
+                             </a> 
+                             &nbsp&nbsp&nbsp
+
+                             <a style="color:blue"> 
+                                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit 
+                             </a> 
+                             &nbsp&nbsp&nbsp
+
+                             <a style="color:red"> 
+                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete Ad 
+                             </a> 
+                         </td>
+
+                         <td class="col-xs-1"> 
+                             Rs. 20000
+                         </td>
+
+                         <td class="col-xs-1"> 
+                             <button type="submit" class="btn btn-default" style="background-color:blue; color:white"> 
+                                <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Activate Ad
+                            </button>
+                         </td>
+                     </tr>   *@  
+                     
+                     @foreach(var c in Model)
+                     {
+                         if (c.status == "inactive" && c.uid == @ViewBag.z)
+                         {
+                            
+                             <tr style="height:110px; border:ridge">
+                                 <td class="col-xs-2">
+                         
+                                     <input type="checkbox" name="add" value="add"/> &nbsp&nbsp @c.date
+                                 </td>
+
+                                 <td class="col-xs-4">
+                                     <img src="@c.image" style="height:70px"/>
+                                     @c.title
+                                     <br />
+                                     <a style="color:blue"> 
+                                         <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> Preview 
+                                     </a> 
+                                     &nbsp&nbsp&nbsp
+
+                                     <a href ="/Home/updateAd/@c.adId" style="color:blue"> 
+                                         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit 
+                                     </a> 
+                                     &nbsp&nbsp&nbsp
+
+                                     <a href ="/Home/deleteAd/@c.adId" style="color:red"> 
+                                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete Ad 
+                                     </a> 
+                                 </td>
+
+                                 <td class="col-xs-1"> 
+                                     @c.price
+                                     <br />
+                                     <br />
+                                     <label style="color:blueviolet"> Contact:</label> @c.phoneNo
+                                 </td>
+
+                                 <td class="col-xs-1"> 
+
+                                     <a href="/Home/activateAd/@c.adId" class="btn btn-default" style="background-color:blue; color:white"> 
+                                        <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Activate Ad
+                                    </a>
+                                 </td>
+                             </tr>               
+                        }
+                     }
+                 </table>
+             </div>
+        </div>
+    </div>
+
+</body>
+</html>
